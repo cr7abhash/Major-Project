@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Login To The System
+{% endblock %}
+
+
+{% block content %}
+    <div class='col-sm-5'>
+        <h4>User Status :  </h4>
+        <h3> {{ login_status }}</h3>
+        <br>
+        <i>If Logged in as a User, please </i>
+        <a href="{% url 'logout'%}">Logout</a><i> first </i>
+        <br>
+        <br>
+        <b><i>
+         Want to make a new USER account !!  Get in <a href="{% url 'newuserregister'%}">HERE</a>
+        </i></b>
+    </div>
+    <div class='col-sm-7'>
+         <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+               <label for="username" >Enter your UserName</label>
+               <input type="text" class="form-control" id="username" name="username" placeholder="username here" />
+            </div>
+
+            <div class="form-group">
+               <label for="password" >Account Password</label>
+               <input type="password" class="form-control" id="password" name="password" placeholder="password here" />
+            </div>
+             <button type="submit" class="btn btn-success">Login</button>
+             <br>
+             
+         </form>
+     </div>
+     
+
+     {% if invalid_login == "True" %}
+        <br><br><br><br><br><br><br><br><br><br>
+        <div class='col-sm-offset-5'>
+            <div class='container container-alert-flash col-sm-7 '>  
+                <div class='alert alert-danger alert-dismissible' role='alert'> 
+                Invalid login, use correct details !!
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span></button>
+                </div>
+            </div>
+        </div>
+     {% endif %}
+{% endblock %}

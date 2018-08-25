@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	Create new User
+{% endblock %}
+
+
+{% block content %}
+    <strong><h2>Fill out the Form to create a new Account for yourself !!</h2></strong>
+    <h4>Be Sure to enter valid user credentials and please do note them down !!</h4>
+    </br>
+    <form action="{% url 'newuserregister'%}" method = "POST">
+       {% csrf_token  %}
+
+       {{ form.as_p }}
+
+       <button type="submit" class="btn btn-success">Register</button>
+	</form>
+
+{% endblock %}

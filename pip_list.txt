@@ -1,0 +1,13 @@
+certifi 
+chardet 
+Django
+django-crispy-forms
+idna
+olefile
+Pillow
+pip
+pytz
+requests
+setuptools
+urllib3
+wheel

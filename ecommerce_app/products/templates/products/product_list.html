@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Buy Products
+{% endblock %}
+
+
+{% block content %}
+<style>
+	
+	.testimonial-group > .row {
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+	.testimonial-group > .row > .col-xs-3 {
+		display: inline-block;
+		float: none;
+	}
+
+	.col-xs-3 { color: #fff; font-size: 20px; padding-bottom: 20px; padding-top: 18px; }
+	.col-xs-3:nth-child(4n+1) { background: #c69; }
+	.col-xs-3:nth-child(4n+2) { background: #9c6; }
+	.col-xs-3:nth-child(4n+3) { background: #69c; }
+	.col-xs-3:nth-child(4n+4) { background: #900000; }
+</style>
+<div class="container testimonial-group">
+	 
+  <div class="row text-center">
+	  <div class="col-xs-3">Popular Brands --></div>
+		{% for manu in most_popular_brands  %}  
+			<div class="col-xs-3"><a href="{%url 'search' %}?keyword={{manu}}" style="color: #FFFFFF" >  {{ manu}} </a></div>
+		{% endfor %}
+		
+  </div>
+</div>
+
+    <hr/>
+	
+	<div class="row-fluid">
+		<ul class="thumbnails">
+			
+			{% for product in  product_list %} 
+			<li class="col-sm-4">
+				<div class="thumbnail">
+					<a href="{{ product.get_absolute_url }}">
+							<img src="{{ product.get_image_url }}" alt="{{product.title}}"  style="max-height: 130px;">
+					</a>	
+					<div class="caption">
+						<h3>{{product.title}}</h3> <h4>{{product.manufacturer}}</h4>
+						<p>
+							<b>Rs.{{product.price}}</b>
+							
+						</p>
+					</div>
+				
+					<div class="widget-footer">
+					<p>
+						<a href="{{ product.get_absolute_url }}" class="btn btn-primary">view</a>&nbsp;
+						<a href="{%url 'search' %}?keyword={{product.manufacturer}}" class="btn btn-link">more by {{product.manufacturer}}</a>
+					</p>
+					</div>
+					
+				</div>
+			</li>
+			
+			{% endfor %}
+			
+		</ul>
+	</div>
+	
+	<!--
+	<table class="table table-bordered table-hover table-hover table-responsive">
+		<tr>
+			<th>Product pk</th>
+			<th>Name</th>
+			<th>Manufacturer</th>
+			<th>Description</th>
+			<th>Price</th>
+		</tr>
+		{% for product in  product_list %}
+		<tr>
+			<td>{{product.pk}}</td>
+			<td><a href="{{ product.get_absolute_url }}" > {{product.title}}</a> </td>  
+			<td>{{product.manufacturer}}</td>
+			<td>{{product.description}}</td>
+			<td>{{product.price}}</td>
+		</tr>
+		{% endfor %}
+		
+	</table> -->
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+	<br><br><br><br>
+	
+	
+
+	{% include 'recommendation_bar.html' %}
+{% endblock %}

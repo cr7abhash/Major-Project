@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Send Offer{% endblock %}
+
+{% block content %}
+    {% if request.user.is_superuser %}
+        <div class='col-md-7 col-sm-offset-2  '>
+        
+
+        <div class='container container-alert-flash col-md-10 '>  
+            <div class='alert alert-success alert-dismissible' role='alert'> 
+            Send an Offer to Customers !!
+            </div>
+        </div>  <br>
+        
+        <div class="col-md-10">
+            <form id="send_offer_template"  method='POST' action="{% url 'send_offer' %}">{% csrf_token %}
+                <!-- <input type='hidden' name='payment_token' value='ABC' /> -->
+                <div class="form-group">
+                    <label for="offer_header" >Email header</label>
+                    <input type="text" class='form-control' id="offer_header" name='offer_message_header' placeholder="Message Header for Offer" required /> 
+                </div>
+                
+                <div class="form-group">
+                    <label for="offer_message" >Offer Email</label>
+                    <textarea class='form-control' id="offer_message" name='offer_message' placeholder="Message of the  Offer" required rows="5"> </textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer_product" >To Customers who bought</label>
+                    <select id="offer_product" name="product_offer" class='form-control' required>
+                        {% for product in all_products %}
+                            <option value="{{product.title}}">{{product.title}}</option>
+                        {% endfor %} 
+                    </select>
+                </div>
+                <p><br/><button class="btn btn-success btn-lg" type='submit'>Send Offer</button></b>
+                </p>
+            </form>
+        </div> </div>
+        
+    {%  else %}
+        <div class='container container-alert-flash col-md-7 '>  
+            <div class='alert alert-danger alert-dismissible' role='alert'> 
+                ADMIN credentials required !
+            </div>
+            <a href="{% url 'login' %}">LOGIN</a> as Admin
+      </div>
+    {% endif %} 
+{% endblock %}
+
+
+

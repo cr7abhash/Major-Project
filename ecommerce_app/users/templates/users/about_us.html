@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	About us
+{% endblock %}
+
+
+{% block content %}
+        <div class='container container-alert-flash col-md-12 '>  
+            <div class='alert alert-success alert-dismissible' role='alert'> 
+                ABOUT us and Our Company
+            </div>
+        </div> 
+        
+    <div class="col-md-10 col-sm-offset-1">
+       <strong>ABOUT THE WEBSITE:</strong>
+       <p class="lead">
+           <h5> 
+               THIS is a system designed for a business organization to manage its products, sales and customer database for future planning, marketing and evolution and record keeping. 
+                It also provides a smooth web-platform for the customers (e-commerce) alongside data-storage environment to the business stakeholders. 
+           </h5>
+            <ul>
+                <li> Manage an enterprise business (for Stakeholders)   </li>
+                <li> Various different <a href="https://articles.braintreepayments.com/support/get-started/payment-methods" target="_blank"> Payment methods </a> available !!   </li>
+                <li><a href="{% url 'products' %}"> E-commerce platform</a> for customers, browse and shop online </li>
+            </ul>
+        <br><br><br>
+
+       </p>
+
+    </div>
+    
+    
+
+    <div class="container">
+        <div class="row" id="slider-text">
+            <div class="col-md-6" >
+                <h2>Our Team _________</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+		<ul class="thumbnails">
+			
+			
+			<li class="col-sm-3">
+				<div class="thumbnail">
+					<a href="https://www.facebook.com/kiddo07">
+							<img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t1.0-9/18195077_640804426115115_3515220451303239664_n.jpg?oh=ecf95f1a08fa73b73e5e51c9e9dcc07d&oe=5A2986DE" alt="abhash"  style="max-height: 130px;">
+					</a>	
+					<div class="caption">
+						<h3>Abhash Pradhananga</h3> <h5>Project-role: Project Manager</h5>
+						<p>
+							<small>Qualified Redhat systems engineer</small>
+							
+						</p>
+					</div>
+                    <div class="widget-footer">
+                        <p>
+                            <a href="https://www.linkedin.com/in/abhash-pradhanang-1b4112120/" class="btn btn-small btn-success">Linkedin</a>&nbsp;
+                            <br />
+                            <a href="https://www.facebook.com/kiddo07" class="btn btn-small btn-primary">Connect in FB</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="col-sm-3">
+				<div class="thumbnail">
+					<a href="https://www.facebook.com/Ayush.Lal.Shr">
+							<img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t1.0-9/13895287_920344748091779_3545769628935930548_n.jpg?oh=04a2611f992aadcc5f27d63a7c9c77ed&oe=5A245135" alt="ayush"  style="max-height: 130px;">
+					</a>	
+					<div class="caption">
+						<h3>Ayush Lal Shrestha</h3> <h5>Project-role: System Developer</h5>
+						<p>
+							<small>System Software Backend developer</small>
+							
+						</p>
+					</div>
+                    <div class="widget-footer">
+                        <p>
+                            <a href="#" class="btn btn-small btn-success">Linkedin</a>&nbsp;
+                            <a href="#" class="btn btn-small btn-primary">Connect in FB</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="col-sm-3">
+				<div class="thumbnail">
+					<a href="https://www.facebook.com/profile.php?id=100011583609819">
+							<img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t1.0-9/17498771_337759233286861_6208009386784964803_n.jpg?oh=79456ee21da46f65507dc8889cdec771&oe=59F6EA31" alt="dipesh"  style="max-height: 130px;">
+					</a>	
+					<div class="caption">
+						<h3>Dipesh Paudel</h3> <h5>Project-role: Sales and Marketing</h5>
+						<p>
+							<small>Qualified system Administrator</small>
+						</p>
+					</div>
+                    <div class="widget-footer">
+                        <p>
+                            <a href="#" class="btn btn-small btn-success">Linkedin</a>&nbsp;
+                            <a href="#" class="btn btn-small btn-primary">Connect in FB</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="col-sm-3">
+				<div class="thumbnail">
+					<a href="https://www.facebook.com/manish.shakya.37">
+							<img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t1.0-9/10407543_642814862481045_7822633914671558560_n.jpg?oh=0c8cd665db2280176ce53e1a1f36fb9d&oe=5A341479" alt="manish"  style="max-height: 130px;">
+					</a>	
+					<div class="caption">
+						<h3>Manish Shakya</h3> <h5>Project-role: Front-end Developer</h5>
+						<p>
+							<small>Front-end JS developer/Back-end GRAILS dev.</small>
+							
+						</p>
+					</div>
+                    <div class="widget-footer">
+                        <p>
+                            <a href="https://www.facebook.com/manish.shakya.37" class="btn btn-small btn-success">Linkedin</a>&nbsp;
+                            <a href="https://www.facebook.com/manish.shakya.37" class="btn btn-small btn-primary">Connect in FB</a>
+                        </p>
+                    </div>
+                </div>
+			</li>
+			
+			
+			
+		</ul>
+    </div>
+    <hr/>
+    
+    
+
+    
+{% endblock %}

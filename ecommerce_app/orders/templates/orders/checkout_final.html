@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Pay for checkout{% endblock %}
+
+{% block content %}
+
+
+    <div class='col-sm-4 col-sm-offset-4 text-center'>
+
+      {% include "orders/order_summary.html" with order=order %}
+      <hr>
+      <p>
+        <a href='{% url "user_address_create" %}'>Change an Address</a>
+      </p><br/>
+      
+   <form id="checkout"  method='POST' action="{% url 'checkout_final' %}">{% csrf_token %}
+        <!-- <input type='hidden' name='payment_token' value='ABC' /> -->
+        <div id="payment-form"></div>
+        <p><b><button class="btn btn-success btn-lg" type='submit'>Complete Order</button></b>
+        </p>
+      </form>
+
+    </div>
+
+
+
+  <script src="https://js.braintreegateway.com/js/braintree-2.20.0.js"> </script>
+    
+    <script>
+      $(document).ready(function(){
+        //alert("jquery ready !!");
+      var clientToken = "{{ client_token }}";
+
+      braintree.setup(clientToken, "dropin", {
+        container: "payment-form"
+      });
+
+      })
+    </script>
+  
+    
+    <!-- <div class='col-sm-4' style="width:500px;"> <h3>{{ client_token }}</h3> </div> -->
+    
+
+    
+{% endblock %}

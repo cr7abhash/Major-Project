@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Search Results
+{% endblock %}
+
+
+{% block content %}
+    <hr>
+    <h2><i>Results...  </i></h2>
+    
+        <table class="table table-bordered table-hover table-hover table-responsive">
+		<tr>
+			<th>Product pk</th>
+			<th>Name</th>
+			<th>Manufacturer</th>
+			<th>Description</th>
+			<th>Price</th>
+		</tr>
+		{% for product in  product_list %}
+		<tr>
+			<td>{{product.pk}}</td>
+			<td><a href="{{ product.get_absolute_url }}" > {{product.title}}</a> </td>  
+			<td>{{product.manufacturer}}</td>
+			<td style = " max-height: 3.6em ">{{product.description}}</td>
+			<td>{{product.price}}</td>
+		</tr>
+		{% endfor %}
+		
+	</table>    
+    {% if empty_result %}  
+    <h3>Sorry, but no Matches for the search keyword were found !!  <a href="{% url 'products' %}">Browse HERE</a></h3>
+        </br>
+    {% endif %}
+    
+{% endblock %}
